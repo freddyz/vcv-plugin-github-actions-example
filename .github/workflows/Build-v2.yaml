@@ -45,10 +45,12 @@ jobs:
           curl -o Rack-SDK.zip https://vcvrack.com/downloads/Rack-SDK-${{ env.rack-sdk-version }}-win.zip
           unzip Rack-SDK.zip
           sed -i 's/zip -q -9 -r/7z a -tzip -mx=9/' $HOME/Rack-SDK/plugin.mk
+      - name: Get Mac SDK
         if: runner.os == 'MacOS'
         run: |
           curl -o Rack-SDK.zip https://vcvrack.com/downloads/Rack-SDK-${{ env.rack-sdk-version }}-mac.zip
           unzip Rack-SDK.zip
+      - name: Get Linux SDK
         if: runner.os == 'Linux'
         run: |
           curl -o Rack-SDK.zip https://vcvrack.com/downloads/Rack-SDK-${{ env.rack-sdk-version }}-lin.zip
